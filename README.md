@@ -2,7 +2,7 @@
 
 Hello and welcome to my Homework-01 repository for CSC 591: Foundations of Generative AI for Systems. Due to some issues with adding collaborators to this repository, the main files and code are available at the following URL:
 
-[Check code here](https://github.ncsu.edu/pmalavi/Genai_HW1_pmalavi)
+[https://github.ncsu.edu/pmalavi/Genai_HW1_pmalavi](https://github.ncsu.edu/pmalavi/Genai_HW1_pmalavi)
 
 ## Overview
 
