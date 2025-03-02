@@ -1,0 +1,80 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@gpu06>
+Subject: Job 69185: <mlp_batchsize_16> in cluster <Hazel> Done
+
+Job <mlp_batchsize_16> was submitted from host <login02> by user <pmalavi> in cluster <Hazel> at Wed Feb 26 23:19:37 2025
+Job was executed on host(s) <gpu06>, in queue <gpu>, as user <pmalavi> in cluster <Hazel> at Wed Feb 26 23:20:38 2025
+</home/pmalavi> was used as the home directory.
+</share/csc591s25/pmalavi> was used as the working directory.
+Started at Wed Feb 26 23:20:38 2025
+Terminated at Thu Feb 27 02:07:14 2025
+Results reported at Thu Feb 27 02:07:14 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+
+#!/bin/bash
+
+#BSUB -n 1
+
+#BSUB -W 24:00
+
+#BSUB -q gpu
+
+#BSUB -gpu "num=1:mode=shared:mps=no"
+
+#BSUB -J mlp_batchsize_16  # Assign job name
+
+#BSUB -o /share/csc591s25/pmalavi/logs/mlp_batchsize_16.out.%J
+
+#BSUB -e /share/csc591s25/pmalavi/logs/mlp_batchsize_16.err.%J
+
+
+
+# Load environment
+
+source ~/.bashrc
+
+conda activate /share/csc591s25/conda_env/new_env
+
+
+
+# Change to the directory containing the MLP model code
+
+cd "/share/csc591s25/pmalavi/GenAI-for-Systems-Gym/homework-1/models/MLP"
+
+
+
+# Run training with varying batch size
+
+python3 -m cache_replacement.policy_learning.cache_model.main --experiment_base_dir=/share/csc591s25/pmalavi/tmp --experiment_name=mlp_batchsize_16 --cache_configs="cache_replacement/policy_learning/cache/configs/default.json" --model_configs="cache_replacement/policy_learning/cache_model/configs/default.json" --train_memtrace="cache_replacement/policy_learning/cache/traces/astar_313B_train.csv" --valid_memtrace="cache_replacement/policy_learning/cache/traces/astar_313B_valid.csv" --batch_size=16 --total_steps=20001
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   9888.52 sec.
+    Max Memory :                                 5 GB
+    Average Memory :                             4.39 GB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              5
+    Max Threads :                                10
+    Run time :                                   10022 sec.
+    Turnaround time :                            10057 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </share/csc591s25/pmalavi/logs/mlp_batchsize_16.err.69185> for stderr output of this job.
+

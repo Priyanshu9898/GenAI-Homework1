@@ -1,0 +1,60 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c050n03>
+Subject: Job 75062: <mlp_width_256> in cluster <Hazel> Done
+
+Job <mlp_width_256> was submitted from host <login02> by user <pmalavi> in cluster <Hazel> at Thu Feb 27 21:27:15 2025
+Job was executed on host(s) <c050n03>, in queue <short>, as user <pmalavi> in cluster <Hazel> at Thu Feb 27 21:27:16 2025
+</home/pmalavi> was used as the home directory.
+</share/csc591s25/pmalavi/scripts/eval_scripts> was used as the working directory.
+Started at Thu Feb 27 21:27:16 2025
+Terminated at Thu Feb 27 21:31:08 2025
+Results reported at Thu Feb 27 21:31:08 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+
+#!/bin/bash
+
+#BSUB -n 1
+#BSUB -W 1:00
+#BSUB -q short
+#BSUB -J mlp_width_256
+#BSUB -o /share/csc591s25/pmalavi/logs/eval/mlp_width_256.out.%J
+#BSUB -e /share/csc591s25/pmalavi/logs/eval/mlp_width_256.err.%J
+
+source ~/.bashrc
+conda activate /share/csc591s25/conda_env/new_env
+
+cd "/share/csc591s25/pmalavi/GenAI-for-Systems-Gym/homework-1/models/MLP"
+
+python3 -m cache_replacement.policy_learning.cache.main --experiment_base_dir="/share/csc591s25/pmalavi/eval" --experiment_name="mlp_width_256" --cache_configs="cache_replacement/policy_learning/cache/configs/default.json" --cache_configs="cache_replacement/policy_learning/cache/configs/eviction_policy/learned.json" --memtrace_file="cache_replacement/policy_learning/cache/traces/astar_313B_test.csv" --config_bindings="eviction_policy.scorer.checkpoint=\"/share/csc591s25/pmalavi/tmp/mlp_width_256/checkpoints/20000.ckpt\"" --config_bindings="eviction_policy.scorer.config_path=\"/share/csc591s25/pmalavi/tmp/mlp_width_256/model_config.json\"" --warmup_period=0
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   201.20 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   245 sec.
+    Turnaround time :                            233 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </share/csc591s25/pmalavi/logs/eval/mlp_width_256.err.75062> for stderr output of this job.
+

@@ -1,0 +1,60 @@
+Evaluation for LSTM_abl_reuse completed.
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c013n03>
+Subject: Job 75199: <LSTM_abl_reuse> in cluster <Hazel> Done
+
+Job <LSTM_abl_reuse> was submitted from host <login02> by user <pmalavi> in cluster <Hazel> at Thu Feb 27 21:47:53 2025
+Job was executed on host(s) <c013n03>, in queue <short>, as user <pmalavi> in cluster <Hazel> at Thu Feb 27 21:47:55 2025
+</home/pmalavi> was used as the home directory.
+</share/csc591s25/pmalavi/scripts/eval_scripts> was used as the working directory.
+Started at Thu Feb 27 21:47:55 2025
+Terminated at Thu Feb 27 21:55:08 2025
+Results reported at Thu Feb 27 21:55:08 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 1:00
+#BSUB -q short
+#BSUB -J LSTM_abl_reuse
+#BSUB -o /share/csc591s25/pmalavi/logs/eval/LSTM_abl_reuse.out.%J
+#BSUB -e /share/csc591s25/pmalavi/logs/eval/LSTM_abl_reuse.err.%J
+
+source ~/.bashrc
+conda activate /share/csc591s25/conda_env/new_env
+
+cd "/share/csc591s25/pmalavi/GenAI-for-Systems-Gym/homework-1/models/LSTM"
+
+python3 -m cache_replacement.policy_learning.cache.main --experiment_base_dir="/share/csc591s25/pmalavi/eval" --experiment_name="LSTM_abl_reuse" --cache_configs="cache_replacement/policy_learning/cache/configs/default.json" --cache_configs="cache_replacement/policy_learning/cache/configs/eviction_policy/learned.json" --memtrace_file="cache_replacement/policy_learning/cache/traces/astar_313B_test.csv" --config_bindings="eviction_policy.scorer.checkpoint=\"/share/csc591s25/pmalavi/tmp/LSTM_abl_reuse/checkpoints/20000.ckpt\"" --config_bindings="eviction_policy.scorer.config_path=\"/share/csc591s25/pmalavi/tmp/LSTM_abl_reuse/model_config.json\"" --warmup_period=0
+echo "Evaluation for LSTM_abl_reuse completed."
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   271.45 sec.
+    Max Memory :                                 -
+    Average Memory :                             -
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                7
+    Run time :                                   454 sec.
+    Turnaround time :                            435 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file </share/csc591s25/pmalavi/logs/eval/LSTM_abl_reuse.err.75199> for stderr output of this job.
+
